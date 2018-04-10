@@ -36,7 +36,7 @@ firstPike.cookieHour();
 console.log(firstPike.numCookieSold);
 firstPike.totalCookieSold();
 console.log(firstPike.cookieDay);
-firstPike.renderFirstPike();
+//firstPike.renderFirstPike();
 console.log(firstPike.numCookieSold);
 
 // SeatTac Store
