@@ -77,5 +77,17 @@ for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions f
   CookieStore.allStores[i].renderStore(); // call function to append data to the table
 }
 
+function addNewStoreSubmitted(event) {
+  event.preventDefault();
+  var formElement = event.target;
+  var newStore = new CookieStore(formElement.storeName.value, formElement.minCust.value, 
+    formElement.maxCust.value, formElement.aveSale.value);
+  newStore.rendomNumCust();
+  newStore.cookieHour();
+  newStore.totalCookieSold();
+  newStore.renderStore();
 
+}
 
+var storeFormElement = document.getElementById('add-store');
+storeFormElement.addEventListener('submit', addNewStoreSubmitted);
