@@ -70,24 +70,44 @@ new CookieStore ('capHill', 23, 65, 6.3);
 new CookieStore ('seaCenter', 11, 38, 3.7);
 new CookieStore ('alkiStore', 2, 16, 4.6);
 
-for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
-  CookieStore.allStores[i].rendomNumCust();
-  CookieStore.allStores[i].cookieHour();
-  CookieStore.allStores[i].totalCookieSold();
-  CookieStore.allStores[i].renderStore(); // call function to append data to the table
+// for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
+//   CookieStore.allStores[i].rendomNumCust();
+//   CookieStore.allStores[i].cookieHour();
+//   CookieStore.allStores[i].totalCookieSold();
+//   CookieStore.allStores[i].renderStore(); // call function to append data to the table
+// }
+
+function callAllFunction (store){
+  store.rendomNumCust();
+  store.cookieHour();
+  store.totalCookieSold();
+  store.renderStore(); // call function to append data to the table
 }
+
+
+function renderAllFunction(){
+  for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
+    callAllFunction(CookieStore.allStores[i]);
+  }
+}
+
+renderAllFunction();
+
 
 function addNewStoreSubmitted(event) {
   event.preventDefault();
   var formElement = event.target;
   var newStore = new CookieStore(formElement.storeName.value, formElement.minCust.value, 
     formElement.maxCust.value, formElement.aveSale.value);
-  newStore.rendomNumCust();
-  newStore.cookieHour();
-  newStore.totalCookieSold();
-  newStore.renderStore();
+  // newStore.rendomNumCust();
+  // newStore.cookieHour();
+  // newStore.totalCookieSold();
+  // newStore.renderStore();
+
+  callAllFunction(newStore);
 
 }
+
 
 var storeFormElement = document.getElementById('add-store');
 storeFormElement.addEventListener('submit', addNewStoreSubmitted);
