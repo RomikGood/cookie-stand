@@ -62,7 +62,7 @@ function renderHeader() {   // create header row function
   CookieStoreTable.appendChild(headerRow); // append hours row to the table
 }
 
-renderHeader(); // call function to create header row hours 
+renderHeader(); // call function to create hours header row 
 
 new CookieStore ('firstPike', 23, 65, 6.3); // create new object
 new CookieStore ('seaTac', 3, 24, 1.2);
@@ -70,7 +70,7 @@ new CookieStore ('capHill', 23, 65, 6.3);
 new CookieStore ('seaCenter', 11, 38, 3.7);
 new CookieStore ('alkiStore', 2, 16, 4.6);
 
-for(var i = 0; i < CookieStore.allStores.length; i++){   // calclates all functions for each store
+for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
   CookieStore.allStores[i].rendomNumCust();
   CookieStore.allStores[i].cookieHour();
   CookieStore.allStores[i].totalCookieSold();
