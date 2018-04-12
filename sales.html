@@ -14,15 +14,18 @@
 </table>
 
 <form id="add-store">
-  <label for="storeName-input">Store Name</label>
+<fieldset>
+  <legend style="font-size:32px">add new store</legend>
+  <label for="storeName-input">Store Name:</label>
   <input type="text" id="storeName-input" name="storeName" /><br>
-  <label for="minCust-input">Min Customers</label>
-  <input type="text" id="minCust-input" name="minCust" /><br>
-  <label for="maxCust-input">Max Customers</label>
-  <input type="text" id="maxCust-input" name="maxCust" /><br>
-  <label for="aveSales-input">Average Sales</label>
-  <input type="text" id="aveSales-input" name="aveSale" /><br>
+  <label for="minCust-input">Min Customers:</label>
+  <input type="number" id="minCust-input" name="minCust" /><br>
+  <label for="maxCust-input">Max Customers:</label>
+  <input type="number" id="maxCust-input" name="maxCust" /><br>
+  <label for="aveSales-input">Average Sales:</label>
+  <input type="number" step="0.1" id="aveSales-input" name="aveSale" /><br>
   <input type="submit" />
+</fieldset>
 </form>
 
 

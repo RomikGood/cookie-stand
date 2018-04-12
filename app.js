@@ -84,21 +84,19 @@ function callAllFunction (store){
   store.renderStore(); // call function to append data to the table
 }
 
-
 function renderAllFunction(){
   for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
     callAllFunction(CookieStore.allStores[i]);
   }
 }
-
 renderAllFunction();
 
 
 function addNewStoreSubmitted(event) {
-  event.preventDefault();
+  event.preventDefault(); //stop the page from refreshing
   var formElement = event.target;
-  var newStore = new CookieStore(formElement.storeName.value, formElement.minCust.value, 
-    formElement.maxCust.value, formElement.aveSale.value);
+  var newStore = new CookieStore(formElement.storeName.value, parseInt(formElement.minCust.value),
+    parseInt(formElement.maxCust.value), parseFloat(formElement.aveSale.value));
   // newStore.rendomNumCust();
   // newStore.cookieHour();
   // newStore.totalCookieSold();
