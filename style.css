@@ -61,6 +61,22 @@ td {
 p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 40px;
-
-
+  padding:25px 25px;
+}
+input[type=submit] {
+  width: 6em;  height: 3em;
+  padding:3px 3px; 
+  sbackground:#ccc; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 10px;
+  border-radius: 5px; 
+  font-family: sans-serif; 
+  font-size: 20px;
+}
+input[type=text], [type=number] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
