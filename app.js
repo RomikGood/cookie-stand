@@ -9,8 +9,7 @@ function CookieStore (storeName, minCust, maxCust, aveSale) {
   this.aveSale = aveSale;
   this.cookieDay = 0;                  // total amount of cookies sold per day
   this.numCookieSold = [];             // array of amount of cookies sold per hour
-  //this.totalNumSoldDay = [];   // NEW array of total sold per day 
-
+  
   CookieStore.allStores.push(this);    //array of all cookie stores
 }
 CookieStore.prototype.rendomNumCust = function(){
@@ -33,7 +32,7 @@ var CookieStoreTable = document.getElementById('cookieStore');  // we access tab
 
 CookieStore.prototype.renderStore = function() {
 
-  var trElement = document.createElement('tr'); // create tr
+  var trElement = document.createElement('tbody'); // create tr
   var tdElement = document.createElement('th'); // create td / th
 
   tdElement.textContent = this.storeName; //give td content (name of each store)
@@ -56,7 +55,7 @@ CookieStore.prototype.renderStore = function() {
 /////////////////////////// create header row function
 function renderHeader() {
 
-  var headerRow = document.createElement('tr'); // create tr
+  var headerRow = document.createElement('thead'); // create tr
 
   var headings = ['','6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm','Total'];
   for(var i of headings) {
@@ -70,11 +69,11 @@ function renderHeader() {
 
 renderHeader(); // call function to create hours header row
 
-new CookieStore ('firstPike', 23, 65, 6.3); // create new object
-new CookieStore ('seaTac', 3, 24, 1.2);
-new CookieStore ('capHill', 23, 65, 6.3);
-new CookieStore ('seaCenter', 11, 38, 3.7);
-new CookieStore ('alkiStore', 2, 16, 4.6);
+new CookieStore ('First & Pike', 23, 65, 6.3); // create new object
+new CookieStore ('Sea-Tac', 3, 24, 1.2);
+new CookieStore ('Capital Hill', 23, 65, 6.3);
+new CookieStore ('Seattle Center', 11, 38, 3.7);
+new CookieStore ('Alki Store', 2, 16, 4.6);
 
 // for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
 //   CookieStore.allStores[i].rendomNumCust();
@@ -83,11 +82,12 @@ new CookieStore ('alkiStore', 2, 16, 4.6);
 //   CookieStore.allStores[i].renderStore(); // call function to append data to the table
 // }
 
-function callAllFunction (store){
+function callAllFunction (store){ // call function to append data to the table
   store.rendomNumCust();
   store.cookieHour();
   store.totalCookieSold();
-  store.renderStore(); // call function to append data to the table
+  store.renderStore();
+ 
 }
 
 function renderAllFunction(){
@@ -100,6 +100,7 @@ renderAllFunction();
 
 //// add new store function
 function addNewStoreSubmitted(event) {
+  
   event.preventDefault(); //stop the page from refreshing
   var formElement = event.target;
   var newStore = new CookieStore(formElement.storeName.value, parseInt(formElement.minCust.value),
@@ -108,9 +109,9 @@ function addNewStoreSubmitted(event) {
   // newStore.cookieHour();
   // newStore.totalCookieSold();
   // newStore.renderStore();
-
+  
   callAllFunction(newStore);
-
+  
 }
 
 
@@ -122,11 +123,11 @@ storeFormElement.addEventListener('submit', addNewStoreSubmitted);
 
 function renderFooter(){
 
-  var footerRow = document.createElement('tr'); // create tr
+  var footerRow = document.createElement('tfoot'); // create tr
 
   // create total text cell
   var totalHrText = document.createElement('th');
-  totalHrText.textContent = 'Total';
+  totalHrText.textContent = 'Total sold';
   footerRow.appendChild(totalHrText);
 
   // create footer row with total every hr
@@ -136,7 +137,7 @@ function renderFooter(){
     var cookieThatHr = 0;
     for(var i=0; i<CookieStore.allStores.length; i++){    //5 stores
       var anyStore = CookieStore.allStores[i];
-      anyStore.numCookieSold[j];
+      //anyStore.numCookieSold[j];
       cookieThatHr += anyStore.numCookieSold[j];
     }
     totalPerHrElement.textContent = cookieThatHr;
@@ -148,9 +149,9 @@ function renderFooter(){
   var grandTotal = document.createElement('th'); // create cell
 
   for (i=0; i < CookieStore.allStores.length; i++){   // 5 stores
-    var justStore = CookieStore.allStores[i]; //new
-    justStore.cookieDay;
-    GrandTotalCookie += justStore.cookieDay;
+    //var justStore = CookieStore.allStores[i]; //new
+    //justStore.cookieDay;
+    GrandTotalCookie += CookieStore.allStores[i].cookieDay;
   }
   grandTotal.textContent = GrandTotalCookie;
   footerRow.appendChild(grandTotal);
