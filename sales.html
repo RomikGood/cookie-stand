@@ -11,6 +11,10 @@
 <h1>Cookie sales at each location</h1>
 
 <table id="cookieStore">                 
+
+
+
+ 
 </table>
 
 <form id="add-store">
@@ -19,11 +23,11 @@
   <label for="storeName-input">Store Name:</label>
   <input type="text" id="storeName-input" name="storeName" /><br>
   <label for="minCust-input">Min Customers:</label>
-  <input type="number" id="minCust-input" name="minCust" /><br>
+  <input type="number" id="minCust-input" name="minCust" min = "0"/><br>
   <label for="maxCust-input">Max Customers:</label>
-  <input type="number" id="maxCust-input" name="maxCust" /><br>
+  <input type="number" id="maxCust-input" name="maxCust" min = "0"/><br>
   <label for="aveSales-input">Average Sales:</label>
-  <input type="number" step="0.1" id="aveSales-input" name="aveSale" /><br>
+  <input type="number" step="0.1" id="aveSales-input" name="aveSale" min = "0"/><br>
   <input type="submit" />
 </fieldset>
 </form>

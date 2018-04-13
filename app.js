@@ -9,8 +9,9 @@ function CookieStore (storeName, minCust, maxCust, aveSale) {
   this.aveSale = aveSale;
   this.cookieDay = 0;                  // total amount of cookies sold per day
   this.numCookieSold = [];             // array of amount of cookies sold per hour
-  
-  CookieStore.allStores.push(this);    //array of all cookie stores
+
+  CookieStore.allStores.push(this);
+//array of all cookie stores
 }
 CookieStore.prototype.rendomNumCust = function(){
   return Math.random() * (this.maxCust - this.minCust) + this.minCust; //Generates random number of customers in given range
@@ -24,7 +25,7 @@ CookieStore.prototype.totalCookieSold = function () {   // total cookies sold pe
   for (var i= 0; i < this.numCookieSold.length; i++) {
     this.cookieDay += this.numCookieSold[i];
   }
-  
+
 };
 
 
@@ -75,19 +76,12 @@ new CookieStore ('Capital Hill', 23, 65, 6.3);
 new CookieStore ('Seattle Center', 11, 38, 3.7);
 new CookieStore ('Alki Store', 2, 16, 4.6);
 
-// for(var i = 0; i < CookieStore.allStores.length; i++){   // call all functions for each store
-//   CookieStore.allStores[i].rendomNumCust();
-//   CookieStore.allStores[i].cookieHour();
-//   CookieStore.allStores[i].totalCookieSold();
-//   CookieStore.allStores[i].renderStore(); // call function to append data to the table
-// }
 
 function callAllFunction (store){ // call function to append data to the table
   store.rendomNumCust();
   store.cookieHour();
   store.totalCookieSold();
   store.renderStore();
- 
 }
 
 function renderAllFunction(){
@@ -97,20 +91,17 @@ function renderAllFunction(){
 }
 renderAllFunction();
 
-
 //// add new store function
 function addNewStoreSubmitted(event) {
-  
+
   event.preventDefault(); //stop the page from refreshing
   var formElement = event.target;
   var newStore = new CookieStore(formElement.storeName.value, parseInt(formElement.minCust.value),
     parseInt(formElement.maxCust.value), parseFloat(formElement.aveSale.value));
-  // newStore.rendomNumCust();
-  // newStore.cookieHour();
-  // newStore.totalCookieSold();
-  // newStore.renderStore();
-  
+
   callAllFunction(newStore);
+  
+  renderFooter(); // new
   
 }
 
@@ -122,7 +113,7 @@ storeFormElement.addEventListener('submit', addNewStoreSubmitted);
 // create a footer of total per hr in every store
 
 function renderFooter(){
-
+  
   var footerRow = document.createElement('tfoot'); // create tr
 
   // create total text cell
