@@ -30,7 +30,7 @@ CookieStore.prototype.renderStore = function() {
 
   var trElement = document.createElement('tr'); // create tr
   var tdElement = document.createElement('th'); // create td / th
-  
+
   tdElement.textContent = this.storeName; //give td content (name of each store)
   trElement.appendChild(tdElement); //append td to tr
 
@@ -45,7 +45,7 @@ CookieStore.prototype.renderStore = function() {
   trElement.appendChild(totalElement);                     //append this total td to tr
 
 
-  CookieStoreTable.appendChild(trElement);          //append tr to table 
+  CookieStoreTable.appendChild(trElement);          //append tr to table
 };
 
 function renderHeader() {   // create header row function
@@ -62,7 +62,7 @@ function renderHeader() {   // create header row function
   CookieStoreTable.appendChild(headerRow); // append hours row to the table
 }
 
-renderHeader(); // call function to create hours header row 
+renderHeader(); // call function to create hours header row
 
 new CookieStore ('firstPike', 23, 65, 6.3); // create new object
 new CookieStore ('seaTac', 3, 24, 1.2);
@@ -91,7 +91,6 @@ function renderAllFunction(){
 }
 renderAllFunction();
 
-
 function addNewStoreSubmitted(event) {
   event.preventDefault(); //stop the page from refreshing
   var formElement = event.target;
@@ -109,3 +108,41 @@ function addNewStoreSubmitted(event) {
 
 var storeFormElement = document.getElementById('add-store');
 storeFormElement.addEventListener('submit', addNewStoreSubmitted);
+
+
+// create a footer of total per hr in every store
+function renderFooter(){
+
+  var footerRow = document.createElement('tr'); // create tr
+
+  // create total text cell
+  var totalHrText = document.createElement('th');
+  totalHrText.textContent = 'Total';
+  footerRow.appendChild(totalHrText);
+
+  // create footer row with total every hr
+  for(var j=0; j<CookieStore.openHours.length; j++){ // 15 hrs
+
+    var totalPerHrElement = document.createElement('th');  // creat th for each total
+    var cookieThatHr = 0;
+    for(var i=0; i<CookieStore.allStores.length; i++){    //5 stores
+      var anyStore = CookieStore.allStores[i];
+      anyStore.numCookieSold[j];
+      cookieThatHr=anyStore.numCookieSold[j]+cookieThatHr;
+    }
+    totalPerHrElement.textContent = cookieThatHr;
+    footerRow.appendChild(totalPerHrElement); // append hours to the footer row
+  }
+
+/// create grand total cell
+
+
+  CookieStoreTable.appendChild(footerRow); // append hours row to the table
+}
+renderFooter();
+
+
+
+
+
+
