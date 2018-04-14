@@ -100,9 +100,9 @@ function addNewStoreSubmitted(event) {
     parseInt(formElement.maxCust.value), parseFloat(formElement.aveSale.value));
 
   callAllFunction(newStore);
-  
+
   renderFooter(); // new
-  
+  //document.getElementById('cookieStore').deleteRow(footerRow);
 }
 
 
@@ -150,3 +150,4 @@ function renderFooter(){
   CookieStoreTable.appendChild(footerRow); // append hours row to the table
 }
 renderFooter();
+
