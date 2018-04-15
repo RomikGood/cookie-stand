@@ -102,7 +102,7 @@ function addNewStoreSubmitted(event) {
   callAllFunction(newStore);
 
   renderFooter(); // new
-  //document.getElementById('cookieStore').deleteRow(footerRow);
+
 }
 
 
@@ -113,9 +113,10 @@ storeFormElement.addEventListener('submit', addNewStoreSubmitted);
 // create a footer of total per hr in every store
 
 function renderFooter(){
-  
+  CookieStoreTable.deleteTFoot();
   var footerRow = document.createElement('tfoot'); // create tr
 
+//  footerRow.innerHTML = '';
   // create total text cell
   var totalHrText = document.createElement('th');
   totalHrText.textContent = 'Total sold';
@@ -127,9 +128,9 @@ function renderFooter(){
     var totalPerHrElement = document.createElement('th');  // creat th for each total
     var cookieThatHr = 0;
     for(var i=0; i<CookieStore.allStores.length; i++){    //5 stores
-      var anyStore = CookieStore.allStores[i];
+      //var anyStore = CookieStore.allStores[i];
       //anyStore.numCookieSold[j];
-      cookieThatHr += anyStore.numCookieSold[j];
+      cookieThatHr += CookieStore.allStores[i].numCookieSold[j];
     }
     totalPerHrElement.textContent = cookieThatHr;
     footerRow.appendChild(totalPerHrElement); // append hours to the footer row
