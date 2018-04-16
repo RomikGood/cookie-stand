@@ -21,7 +21,8 @@ CookieStore.prototype.cookieHour = function(){                        //cookies 
     this.numCookieSold.push(Math.round(this.rendomNumCust() * this.aveSale)); //rounds up the value and pushes it into array
   }
 };
-CookieStore.prototype.totalCookieSold = function () {   // total cookies sold per day. adds each array value
+// 
+CookieStore.prototype.totalCookieSold = function () {   // assigns total cookies sold per day. adds each array value
   for (var i= 0; i < this.numCookieSold.length; i++) {
     this.cookieDay += this.numCookieSold[i];
   }
@@ -100,9 +101,9 @@ function addNewStoreSubmitted(event) {
     parseInt(formElement.maxCust.value), parseFloat(formElement.aveSale.value));
 
   callAllFunction(newStore);
-  
+
   renderFooter(); // new
-  
+
 }
 
 
@@ -113,9 +114,10 @@ storeFormElement.addEventListener('submit', addNewStoreSubmitted);
 // create a footer of total per hr in every store
 
 function renderFooter(){
-  
+  CookieStoreTable.deleteTFoot();
   var footerRow = document.createElement('tfoot'); // create tr
 
+//  footerRow.innerHTML = '';
   // create total text cell
   var totalHrText = document.createElement('th');
   totalHrText.textContent = 'Total sold';
@@ -127,9 +129,9 @@ function renderFooter(){
     var totalPerHrElement = document.createElement('th');  // creat th for each total
     var cookieThatHr = 0;
     for(var i=0; i<CookieStore.allStores.length; i++){    //5 stores
-      var anyStore = CookieStore.allStores[i];
+      //var anyStore = CookieStore.allStores[i];
       //anyStore.numCookieSold[j];
-      cookieThatHr += anyStore.numCookieSold[j];
+      cookieThatHr += CookieStore.allStores[i].numCookieSold[j];
     }
     totalPerHrElement.textContent = cookieThatHr;
     footerRow.appendChild(totalPerHrElement); // append hours to the footer row
@@ -150,3 +152,4 @@ function renderFooter(){
   CookieStoreTable.appendChild(footerRow); // append hours row to the table
 }
 renderFooter();
+
