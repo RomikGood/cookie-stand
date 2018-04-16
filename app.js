@@ -21,7 +21,8 @@ CookieStore.prototype.cookieHour = function(){                        //cookies 
     this.numCookieSold.push(Math.round(this.rendomNumCust() * this.aveSale)); //rounds up the value and pushes it into array
   }
 };
-CookieStore.prototype.totalCookieSold = function () {   // total cookies sold per day. adds each array value
+// 
+CookieStore.prototype.totalCookieSold = function () {   // assigns total cookies sold per day. adds each array value
   for (var i= 0; i < this.numCookieSold.length; i++) {
     this.cookieDay += this.numCookieSold[i];
   }
