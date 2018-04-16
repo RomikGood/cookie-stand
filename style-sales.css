@@ -1,39 +1,74 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
-body{
-  font-family:  'Open Sans',serif;
-  background-color:rgba(255, 0, 0, 0.212) ;
-  font-size: 20px
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font: 15px;
+  line-height: 1.5;
+  background-color: #ffffff;
 }
-h1{
-  background: #FAFAFA; /* Lighter grey background */
-  text-align: center; /* Center our text */
-
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
-h2 {
-  color:rgb(100, 39, 39);
-  display: flex;
-  font-size: 25px;
-  
+/*header*/
+header{
+  background: #35424a;
+  color: #ffffff;
+  padding-top:30px;
+  min-height: 70px;
+  border-bottom: #e8491d 3px solid;
+}
 
- }
- ul {
-   display:flex;
-   flex-direction: column;
-   float: left;
-   padding: 30px;
-   border: 5px navy;
-   font-weight: bold
 
- }
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+}
 
- li {
-   font-size: 20px;
-   background-color: palegreen;
+header ul {
+  margin: 0;
+  padding: 0;
+}
 
- }
+header li {
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+
+header nav {
+  float: right;
+  margin-top: 10px;
+}
+
+header .highlight, header .current a{
+  color: #e8491d;
+  font-weight: bold;
+}
+header a:hover{
+  color: #cccccc;
+  font-weight: bold;
+}
+
+#main {
+  text-align: center;
+  padding: 20px;
+}
+
+
  
  table {  
   color: #333; 
@@ -48,7 +83,7 @@ h2 {
 td, th { border: 1px solid #CCC; height: 30px; } 
 
 th {  
-  background: rgb(201, 160, 160); 
+  background:#e8491d; 
   font-weight: bold; 
   
 }
@@ -58,11 +93,7 @@ td {
   text-align: center; 
 }
 
-p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 40px;
-  padding:25px 25px;
-}
+
 input[type=submit] {
   width: 6em;  height: 3em;
   padding:3px 3px; 
@@ -79,4 +110,13 @@ input[type=text], [type=number] {
   border:2px solid #ccc; 
   -webkit-border-radius: 5px;
   border-radius: 5px;
+}
+
+footer {
+  padding: 20px;
+  margin-top: 20px;
+  color: #ffffff;
+  background-color: #e8491d;
+  text-align: center;
+
 }
