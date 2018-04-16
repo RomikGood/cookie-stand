@@ -61,13 +61,39 @@ header a:hover{
   font-weight: bold;
 }
 
-/*showcase */
+/*showcase background: white; */
 #showcase {
   min-height: 400px;
   background: white;
+  
+  
   text-align: center;
   color: #e8491d;
 }
+
+#showcase-about {
+  min-height: 400px;
+  background-image: url("img/family.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  opacity: 0.5;
+  
+  text-align: center;
+  color:black;
+  
+}
+
+#showcase-about h1 {
+  margin-top: 50px;
+  font-size: 50px;
+  margin-bottom: 10px;
+  
+}
+#showcase-about p{
+  font-size: 20px;
+  color:black;
+}
+
 
 #showcase h1 {
   margin-top: 50px;
